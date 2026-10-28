@@ -12,8 +12,8 @@ let
     name = "install-${host}";
     runtimeInputs = [ pkgs.nixos-install-tools ];
     text = ''
-      read -r -p "Type 'Y': " resp
-      [ "$resp" = yes ] || exit 1
+      read -r -p "Type 'Y' to install the ${host} NixOS config: " resp
+      [ "$resp" = Y ] || exit 1
       ${b.diskoScript}                 
       nixos-install --no-root-passwd --system ${b.toplevel}
     '';
